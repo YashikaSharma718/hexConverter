@@ -3,7 +3,7 @@
 		assertEquals(-1100,hexConverter(longToHex(-1100)));
 		assertEquals(-10,hexConverter(longToHex(-10)));
 		assertEquals(-1,hexConverter(longToHex(-1)));
-		assertEquals(10,hexConverter(longToHex(10)));
+		assertEquals(65534,hexConverter(longToHex(65534)));
 		
 	}
 	public static  String longToHex(long value) {
@@ -30,7 +30,7 @@
 		String bin=Long.toBinaryString(value);
 		String bin2=Long.toBinaryString(~value);
 		System.out.println("value="+value+"  bin="+bin+" compl="+bin2);
-		if(hex.startsWith("f")) {
+		if(hex.length()==15) {
 			bin2=bin2.substring(bin2.length()-bin.length());
 			value= (Long.parseLong(bin2,2)+1)*-1;
 		}
